@@ -1,10 +1,9 @@
 <script>
-    import { Link } from "@inertiajs/inertia-svelte";
+    import { Link, page } from "@inertiajs/inertia-svelte";
     export let canLogin;
     export let canRegister;
     export let laravelVersion;
     export let phpVersion;
-    export let user;
 </script>
 
 <svelte:head>
@@ -16,7 +15,7 @@
 >
     {#if canLogin}
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            {#if user}
+            {#if $page.props.auth.user}
                 <Link
                     href="/dashboard"
                     class="text-sm text-gray-700 underline dark:text-white"

@@ -12903,7 +12903,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function add_css(target) {
   (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append_styles)(target, "svelte-c2ri3j", ".bg-gray-100.svelte-c2ri3j{background-color:#f7fafc;background-color:rgba(247, 250, 252, var(--tw-bg-opacity))}.border-gray-200.svelte-c2ri3j{border-color:#edf2f7;border-color:rgba(237, 242, 247, var(--tw-border-opacity))}.text-gray-400.svelte-c2ri3j{color:#cbd5e0;color:rgba(203, 213, 224, var(--tw-text-opacity))}.text-gray-500.svelte-c2ri3j{color:#a0aec0;color:rgba(160, 174, 192, var(--tw-text-opacity))}.text-gray-600.svelte-c2ri3j{color:#718096;color:rgba(113, 128, 150, var(--tw-text-opacity))}.text-gray-700.svelte-c2ri3j{color:#4a5568;color:rgba(74, 85, 104, var(--tw-text-opacity))}.text-gray-900.svelte-c2ri3j{color:#1a202c;color:rgba(26, 32, 44, var(--tw-text-opacity))}@media(prefers-color-scheme: dark){.dark\\:bg-gray-800.svelte-c2ri3j{background-color:#2d3748;background-color:rgba(45, 55, 72, var(--tw-bg-opacity))}.dark\\:bg-gray-900.svelte-c2ri3j{background-color:#1a202c;background-color:rgba(26, 32, 44, var(--tw-bg-opacity))}.dark\\:border-gray-700.svelte-c2ri3j{border-color:#4a5568;border-color:rgba(74, 85, 104, var(--tw-border-opacity))}.dark\\:text-white.svelte-c2ri3j{color:#fff;color:rgba(255, 255, 255, var(--tw-text-opacity))}.dark\\:text-gray-400.svelte-c2ri3j{color:#cbd5e0;color:rgba(203, 213, 224, var(--tw-text-opacity))}}");
-} // (17:4) {#if canLogin}
+} // (16:4) {#if canLogin}
 
 
 function create_if_block(ctx) {
@@ -12916,8 +12916,8 @@ function create_if_block(ctx) {
 
   function select_block_type(ctx, dirty) {
     if (
-    /*user*/
-    ctx[4]) return 0;
+    /*$page*/
+    ctx[4].props.auth.user) return 0;
     return 1;
   }
 
@@ -12973,7 +12973,7 @@ function create_if_block(ctx) {
       if_blocks[current_block_type_index].d();
     }
   };
-} // (26:12) {:else}
+} // (25:12) {:else}
 
 
 function create_else_block(ctx) {
@@ -13065,7 +13065,7 @@ function create_else_block(ctx) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(if_block_anchor);
     }
   };
-} // (19:12) {#if user}
+} // (18:12) {#if $page.props.auth.user}
 
 
 function create_if_block_1(ctx) {
@@ -13118,7 +13118,7 @@ function create_if_block_1(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(link, detaching);
     }
   };
-} // (27:16) <Link                     href="/login"                     class="text-sm text-gray-700 underline dark:text-white"                 >
+} // (26:16) <Link                     href="/login"                     class="text-sm text-gray-700 underline dark:text-white"                 >
 
 
 function create_default_slot_2(ctx) {
@@ -13134,7 +13134,7 @@ function create_default_slot_2(ctx) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t);
     }
   };
-} // (34:16) {#if canRegister}
+} // (33:16) {#if canRegister}
 
 
 function create_if_block_2(ctx) {
@@ -13173,7 +13173,7 @@ function create_if_block_2(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(link, detaching);
     }
   };
-} // (35:20) <Link                         href="/register"                         class="ml-4 text-sm text-gray-700 underline dark:text-white"                     >
+} // (34:20) <Link                         href="/register"                         class="ml-4 text-sm text-gray-700 underline dark:text-white"                     >
 
 
 function create_default_slot_1(ctx) {
@@ -13189,7 +13189,7 @@ function create_default_slot_1(ctx) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t);
     }
   };
-} // (20:16) <Link                     href="/dashboard"                     class="text-sm text-gray-700 underline dark:text-white"                 >
+} // (19:16) <Link                     href="/dashboard"                     class="text-sm text-gray-700 underline dark:text-white"                 >
 
 
 function create_default_slot(ctx) {
@@ -13344,21 +13344,23 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
+  var $page;
+  (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, _inertiajs_inertia_svelte__WEBPACK_IMPORTED_MODULE_1__.page, function ($$value) {
+    return $$invalidate(4, $page = $$value);
+  });
   var canLogin = $$props.canLogin;
   var canRegister = $$props.canRegister;
   var laravelVersion = $$props.laravelVersion;
   var phpVersion = $$props.phpVersion;
-  var user = $$props.user;
 
   $$self.$$set = function ($$props) {
     if ('canLogin' in $$props) $$invalidate(0, canLogin = $$props.canLogin);
     if ('canRegister' in $$props) $$invalidate(1, canRegister = $$props.canRegister);
     if ('laravelVersion' in $$props) $$invalidate(2, laravelVersion = $$props.laravelVersion);
     if ('phpVersion' in $$props) $$invalidate(3, phpVersion = $$props.phpVersion);
-    if ('user' in $$props) $$invalidate(4, user = $$props.user);
   };
 
-  return [canLogin, canRegister, laravelVersion, phpVersion, user];
+  return [canLogin, canRegister, laravelVersion, phpVersion, $page];
 }
 
 var Welcome = /*#__PURE__*/function (_SvelteComponent) {
@@ -13376,8 +13378,7 @@ var Welcome = /*#__PURE__*/function (_SvelteComponent) {
       canLogin: 0,
       canRegister: 1,
       laravelVersion: 2,
-      phpVersion: 3,
-      user: 4
+      phpVersion: 3
     }, add_css);
     return _this;
   }
