@@ -1,6 +1,7 @@
 <script>
     export let links;
     import MainLayout from "@/Layouts/Authenticated.svelte";
+
     import { useForm, inertia } from "@inertiajs/inertia-svelte";
 
     let form = useForm({
@@ -8,10 +9,16 @@
         url: null,
     });
 
+    let focusForm;
+
+    function focus() {
+        focusForm.focus();
+    }
+
     function submit() {
+        focus();
         $form.post("/links");
         $form.reset();
-        form.title.focus();
     }
 </script>
 
@@ -47,6 +54,7 @@
                             <div class="mt-1">
                                 <input
                                     bind:value={$form.title}
+                                    bind:this={focusForm}
                                     type="text"
                                     name="title"
                                     id="title"
@@ -79,7 +87,7 @@
                                     name="url"
                                     id="url"
                                     class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300"
-                                    placeholder="www.example.com"
+                                    placeholder="www.twitter.com"
                                 />
                             </div>
                             {#if $form.errors.url}
