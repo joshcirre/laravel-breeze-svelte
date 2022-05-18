@@ -36,13 +36,11 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
-
 Route::get('/about', function () {
     return Inertia::render('About');
-});
+})->middleware(['auth', 'verified'])->name('about');
 
 // Links
-Route::get('/links', [LinkController::class, 'index'])->name('links.index');
+Route::get('/links', [LinkController::class, 'index'])->middleware(['auth', 'verified'])->name('links.index');
 Route::post('/links', [LinkController::class, 'store'])->name('links.store');
 Route::delete('/links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
