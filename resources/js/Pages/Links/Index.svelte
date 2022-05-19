@@ -22,6 +22,9 @@
     }
 </script>
 
+<svelte:head>
+    <title>Links List</title>
+</svelte:head>
 <MainLayout>
     <h2 class="font-semibold text-xl text-gray-800 leading-tight" slot="header">
         Links
@@ -31,19 +34,24 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    {#each links as link}
-                        <li>
-                            <a href={link.url} target="_blank">{link.title}</a>
-                            <button
-                                class="inline-flex mt-4 items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-red-400 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700"
-                                use:inertia={{
-                                    href: `/links/${link.id}`,
-                                    method: "delete",
-                                }}>Delete Link</button
-                            >
-                        </li>
-                    {/each}
-
+                    {#if !links.length}
+                        No links added. Why don't you add one below?
+                    {:else}
+                        {#each links as link}
+                            <li>
+                                <a href={link.url} target="_blank"
+                                    >{link.title}</a
+                                >
+                                <button
+                                    class="inline-flex mt-4 items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-red-400 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700"
+                                    use:inertia={{
+                                        href: `/links/${link.id}`,
+                                        method: "delete",
+                                    }}>Delete Link</button
+                                >
+                            </li>
+                        {/each}
+                    {/if}
                     <form on:submit|preventDefault={submit}>
                         <div class="mt-8">
                             <label
@@ -91,7 +99,9 @@
                                 />
                             </div>
                             {#if $form.errors.url}
-                                <div class="form-error">{$form.errors.url}</div>
+                                <div class="form-error">
+                                    {$form.errors.url}
+                                </div>
                             {/if}
                         </div>
                         <button

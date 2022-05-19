@@ -2,6 +2,9 @@
     import MainLayout from "@/Layouts/Authenticated.svelte";
 </script>
 
+<svelte:head>
+    <title>About</title>
+</svelte:head>
 <MainLayout>
     <h2 class="font-semibold text-xl text-gray-800 leading-tight" slot="header">
         About

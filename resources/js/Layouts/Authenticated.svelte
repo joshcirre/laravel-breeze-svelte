@@ -143,6 +143,18 @@
                     >
                         Dashboard
                     </BreezeResponsiveNavLink>
+                    <BreezeResponsiveNavLink
+                        href="/about"
+                        active={$page.component === "About"}
+                    >
+                        About
+                    </BreezeResponsiveNavLink>
+                    <BreezeResponsiveNavLink
+                        href="/links"
+                        active={$page.component === "Links/Index"}
+                    >
+                        Links
+                    </BreezeResponsiveNavLink>
                 </div>
 
                 <!-- Responsive Settings Options -->
