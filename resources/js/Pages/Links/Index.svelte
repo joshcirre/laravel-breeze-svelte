@@ -37,7 +37,7 @@
                     {#if !links.length}
                         No links added. Why don't you add one below?
                     {:else}
-                        {#each links as link}
+                        {#each links as link (link.id)}
                             <li>
                                 <a href={link.url} target="_blank"
                                     >{link.title}</a
