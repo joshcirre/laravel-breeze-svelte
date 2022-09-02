@@ -15,18 +15,18 @@
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
         "axios": "^0.25",
-        "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.4.6",
         "postcss-import": "^14.0.2",
         "svelte": "^3.48.0",
         "svelte-loader": "^3.1.2",
-        "tailwindcss": "^3.0.18"
+        "tailwindcss": "^3.0.18",
+        "vite": "^3.0.2",
+        "laravel-vite-plugin": "^0.5.0"
     },
     "dependencies": {
         "@inertiajs/inertia": "^0.11.0",
         "@inertiajs/inertia-svelte": "^0.8.0",
-        "@inertiajs/progress": "^0.2.7",
-        "laravel-mix-svelte": "^0.5.0"
+        "@inertiajs/progress": "^0.2.7"
     }
 }
