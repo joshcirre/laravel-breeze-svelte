@@ -80,16 +80,16 @@
                                         </svg>
                                     </button>
                                 </span>
-
-                                <BreezeDropdownLink
-                                    slot="content"
-                                    href="/logout"
-                                    method="post"
-                                    as="button"
-                                    type="button"
-                                >
-                                    Log Out
-                                </BreezeDropdownLink>
+                                <div slot="content">
+                                    <BreezeDropdownLink
+                                        href="/logout"
+                                        method="post"
+                                        as="button"
+                                        type="button"
+                                        >
+                                        Log Out
+                                    </BreezeDropdownLink>
+                                </div>
                             </BreezeDropdown>
                         </div>
                     </div>
