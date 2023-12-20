@@ -4,7 +4,7 @@
     import BreezeInput from "@/Components/Input.svelte";
     import BreezeLabel from "@/Components/Label.svelte";
     import BreezeValidationErrors from "@/Components/ValidationErrors.svelte";
-    import { inertia, useForm } from "@inertiajs/inertia-svelte";
+    import { inertia, useForm } from "@inertiajs/svelte";
     export let errors = {};
 
     let form = useForm({

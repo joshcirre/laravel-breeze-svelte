@@ -5,7 +5,7 @@
     import BreezeInput from "@/Components/Input.svelte";
     import BreezeLabel from "@/Components/Label.svelte";
     import BreezeValidationErrors from "@/Components/ValidationErrors.svelte";
-    import { Link, useForm } from "@inertiajs/inertia-svelte";
+    import { Link, useForm } from "@inertiajs/svelte";
     let err = {};
     export let errors = {};
     export let canResetPassword;

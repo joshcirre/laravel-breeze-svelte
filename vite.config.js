@@ -4,7 +4,7 @@ import laravel from 'laravel-vite-plugin';
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { resolve } from 'path';
 const projectRootDir = resolve(__dirname);
-import {homedir} from 'os';
+import { homedir } from 'os';
 
 let host = 'laravel-breeze-svelte.test'
 
@@ -16,12 +16,6 @@ export default defineConfig({
         }),
         svelte({})
     ],
-    optimizeDeps: {
-        include: [
-            '@inertiajs/inertia',
-            '@inertiajs/inertia-svelte',
-        ]
-    },
     resolve: {
         alias: {
             '@': resolve(projectRootDir, 'resources/js'),
@@ -46,7 +40,7 @@ function detectServerConfig(host) {
     }
 
     return {
-        hmr: {host},
+        hmr: { host },
         host,
         https: {
             key: fs.readFileSync(keyPath),

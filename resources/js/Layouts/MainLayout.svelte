@@ -1,5 +1,5 @@
 <script>
-    import { inertia } from "@inertiajs/inertia-svelte";
+    import { inertia } from "@inertiajs/svelte";
 </script>
 
 <main class="max-w-4xl m-auto h-screen p-14">

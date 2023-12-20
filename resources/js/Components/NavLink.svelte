@@ -1,5 +1,5 @@
 <script>
-    import { inertia } from "@inertiajs/inertia-svelte";
+    import { inertia } from "@inertiajs/svelte";
     let classes;
     export let href;
     export let active;

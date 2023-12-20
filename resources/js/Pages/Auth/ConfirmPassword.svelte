@@ -4,7 +4,7 @@
     import BreezeInput from "@/Components/Input.svelte";
     import BreezeLabel from "@/Components/Label.svelte";
     import BreezeValidationErrors from "@/Components/ValidationErrors.svelte";
-    import { useForm } from "@inertiajs/inertia-svelte";
+    import { useForm } from "@inertiajs/svelte";
     const form = useForm({
         password: "",
     });

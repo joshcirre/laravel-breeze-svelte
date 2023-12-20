@@ -1,5 +1,5 @@
 <script>
-    import { inertia, Link } from "@inertiajs/inertia-svelte";
+    import { inertia, Link } from "@inertiajs/svelte";
 
     let classes;
     export let active = false;

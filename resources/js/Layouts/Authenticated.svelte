@@ -4,7 +4,7 @@
     import BreezeDropdownLink from "@/Components/DropdownLink.svelte";
     import BreezeNavLink from "@/Components/NavLink.svelte";
     import BreezeResponsiveNavLink from "@/Components/ResponsiveNavLink.svelte";
-    import { inertia, page, Link } from "@inertiajs/inertia-svelte";
+    import { inertia, page, Link } from "@inertiajs/svelte";
     let showingNavigationDropdown = false;
     export let user = $page.props.auth.user;
 </script>
