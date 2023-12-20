@@ -35,18 +35,6 @@
                             >
                                 Dashboard
                             </BreezeNavLink>
-                            <BreezeNavLink
-                                href="/about"
-                                active={$page.component === "About"}
-                            >
-                                About
-                            </BreezeNavLink>
-                            <BreezeNavLink
-                                href="/links"
-                                active={$page.component === "Links/Index"}
-                            >
-                                Links
-                            </BreezeNavLink>
                         </div>
                     </div>
 
@@ -142,18 +130,6 @@
                         active={$page.component === "Dashboard"}
                     >
                         Dashboard
-                    </BreezeResponsiveNavLink>
-                    <BreezeResponsiveNavLink
-                        href="/about"
-                        active={$page.component === "About"}
-                    >
-                        About
-                    </BreezeResponsiveNavLink>
-                    <BreezeResponsiveNavLink
-                        href="/links"
-                        active={$page.component === "Links/Index"}
-                    >
-                        Links
                     </BreezeResponsiveNavLink>
                 </div>
 
