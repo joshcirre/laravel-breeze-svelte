@@ -1,29 +1,23 @@
 <script>
-    import BreezeButton from "@/Components/Button.svelte";
-    import BreezeGuestLayout from "@/Layouts/Guest.svelte";
-    import BreezeInput from "@/Components/Input.svelte";
-    import BreezeLabel from "@/Components/Label.svelte";
-    import BreezeValidationErrors from "@/Components/ValidationErrors.svelte";
-    import { inertia, useForm } from "@inertiajs/svelte";
-    export let errors = {};
+    import GuestLayout from "../../Layouts/GuestLayout.svelte";
 
-    let form = useForm({
-        name: null,
-        email: null,
-        password: null,
-        password_confirmation: null,
+    import { Link, useForm } from "@inertiajs/svelte";
+    import InputLabel from "../../Components/InputLabel.svelte";
+    import TextInput from "../../Components/TextInput.svelte";
+    import InputError from "../../Components/InputError.svelte";
+    import PrimaryButton from "../../Components/PrimaryButton.svelte";
+
+    const form = useForm({
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
         terms: false,
     });
 
-    let err = {};
-
-    $: {
-        err = errors;
-    }
-
     const submit = () => {
-        $form.post("/register", {
-            onSuccess: () => $form.reset("password", "password_confirmation"),
+        $form.post(route("register"), {
+            onFinish: () => $form.reset("password", "password_confirmation"),
         });
     };
 </script>
@@ -32,79 +26,79 @@
     <title>Register</title>
 </svelte:head>
 
-<BreezeGuestLayout>
-    <BreezeValidationErrors class="mb-4" errors={err} />
-
+<GuestLayout>
     <form on:submit|preventDefault={submit}>
         <div>
-            <BreezeLabel for="name" value="Name" />
-            <BreezeInput
+            <InputLabel for="name" value="Name" />
+
+            <TextInput
                 id="name"
                 type="text"
-                class="mt-1 block w-full"
-                value={form.name}
+                bind:value={$form.name}
                 required
                 autofocus
                 autocomplete="name"
-                on:input={(evt) => ($form.name = evt.detail)}
             />
+
+            <InputError class="mt-2" message={$form.errors.name} />
         </div>
 
         <div class="mt-4">
-            <BreezeLabel for="email" value="Email" />
-            <BreezeInput
+            <InputLabel for="email" value="Email" />
+
+            <TextInput
                 id="email"
                 type="email"
-                class="mt-1 block w-full"
-                value={form.email}
+                bind:value={$form.email}
                 required
-                autocomplete="username"
-                on:input={(evt) => ($form.email = evt.detail)}
+                autocomplete="email"
             />
+
+            <InputError class="mt-2" message={$form.errors.email} />
         </div>
 
         <div class="mt-4">
-            <BreezeLabel for="password" value="Password" />
-            <BreezeInput
+            <InputLabel for="password" value="Password" />
+
+            <TextInput
                 id="password"
                 type="password"
-                class="mt-1 block w-full"
-                value={form.password}
+                bind:value={$form.password}
                 required
                 autocomplete="new-password"
-                on:input={(evt) => ($form.password = evt.detail)}
             />
+
+            <InputError class="mt-2" message={$form.errors.password} />
         </div>
 
         <div class="mt-4">
-            <BreezeLabel for="password_confirmation" value="Confirm Password" />
-            <BreezeInput
+            <InputLabel for="password_confirmation" value="Confirm Password" />
+
+            <TextInput
                 id="password_confirmation"
                 type="password"
-                class="mt-1 block w-full"
-                value={form.password_confirmation}
+                bind:value={$form.password_confirmation}
                 required
                 autocomplete="new-password"
-                on:input={(evt) => ($form.password_confirmation = evt.detail)}
+            />
+
+            <InputError
+                class="mt-2"
+                message={$form.errors.password_confirmation}
             />
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a
-                href="/login"
-                use:inertia
-                class="underline text-sm text-gray-600 hover:text-gray-900"
+            <Link
+                href={route("login")}
+                class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
             >
                 Already registered?
-            </a>
+            </Link>
 
-            <BreezeButton
-                class="ml-4"
-                xclass:opacity-25={form.processing}
-                disabled={form.processing}
-            >
+            <PrimaryButton disabled={$form.processing} classes="ml-4">
                 Register
-            </BreezeButton>
+            </PrimaryButton>
         </div>
     </form>
-</BreezeGuestLayout>
+</GuestLayout>
